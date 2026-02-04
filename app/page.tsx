@@ -5,6 +5,9 @@ export default function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 dark:bg-black">
       <main className={styles.container}>
+        <Link href="/blog" className={styles.link}>
+          Blog
+        </Link>
         <Link href="/badminton" className={styles.link}>
           Badminton
         </Link>

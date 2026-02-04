@@ -1,0 +1,83 @@
+/* Two-column blog layout: list on the left, content on the right */
+.container {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  align-items: flex-start;
+  min-height: 70vh;
+}
+
+.list {
+  width: 320px;
+  max-height: 75vh;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.listItem {
+  display: block;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.listItem:hover {
+  background: rgba(0,0,0,0.03);
+}
+
+.active {
+  background: #111827;
+  color: white;
+  border-color: rgba(0,0,0,0.2);
+}
+
+.title {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.meta {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.excerpt {
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.content {
+  flex: 1;
+  max-width: 900px;
+}
+
+.postTitle {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.postBody {
+  margin-top: 1rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .list {
+    width: 100%;
+    max-height: none;
+    order: 1;
+  }
+  .content {
+    order: 2;
+  }
+}
