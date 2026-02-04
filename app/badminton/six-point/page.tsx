@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import styles from './page.module.css'
 
 export default function SixPointFootwork() {
   const [tempo, setTempo] = useState(2.0);
@@ -8,9 +9,9 @@ export default function SixPointFootwork() {
   const [output, setOutput] = useState('_');
   const [isRunning, setIsRunning] = useState(false);
 
-  const timerRef = useRef(null);
+  const timerRef = useRef<NodeJS.Timeout>(null);
   const currentRoundRef = useRef(0);
-  const audioFilesRef = useRef([]);
+  const audioFilesRef = useRef<HTMLAudioElement[]>([]);
 
   useEffect(() => {
     const loadedAudio = [];
@@ -74,97 +75,40 @@ export default function SixPointFootwork() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 dark:bg-black">
-      <main style={styles.container}>
-        <h1 style={styles.header}>Fixed Tempo Reader</h1>
+      <main className={styles.container}>
+        <h1 className={styles.header}>Fixed Tempo Reader</h1>
 
-        <div style={styles.inputGroup}>
-          <label style={styles.label}>Tempo (Secs):</label>
+        <div className={styles.inputGroup}>
+          <label className={styles.label}>Tempo (Secs):</label>
           <input
             type="number"
             value={tempo}
             step="0.1"
             min="0.1"
             onChange={(e) => setTempo(parseFloat(e.target.value))}
-            style={styles.input}
+            className={styles.input}
             disabled={isRunning}
           />
         </div>
 
-        <div style={styles.inputGroup}>
-          <label style={styles.label}>Max Rounds:</label>
+        <div className={styles.inputGroup}>
+          <label className={styles.label}>Max Rounds:</label>
           <input
             type="number"
             value={maxRounds}
             min="1"
             onChange={(e) => setMaxRounds(parseInt(e.target.value))}
-            style={styles.input}
+            className={styles.input}
             disabled={isRunning}
           />
         </div>
 
-        <div style={styles.output}>{output}</div>
+        <div className={styles.output}>{output}</div>
 
-        <button
-          onClick={handleToggle}
-          style={styles.button}
-        >
+        <button onClick={handleToggle} className={styles.button}>
           {isRunning ? 'Stop' : 'Start'}
         </button>
       </main>
     </div>
   );
 }
-
-const styles = {
-  container: {
-    maxWidth: '300px',
-    width: '100%',
-    padding: '30px',
-    textAlign: 'center',
-  },
-  header: {
-    marginTop: 0,
-    marginBottom: '20px',
-    fontSize: '1.5rem',
-    fontWeight: 'bold',
-  },
-  inputGroup: {
-    marginBottom: '15px',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  label: {
-    display: 'inline-block',
-    width: '140px',
-    textAlign: 'right',
-    marginRight: '10px',
-    color: 'white',
-  },
-  input: {
-    width: '80px',
-    textAlign: 'center',
-    padding: '5px',
-    borderRadius: '4px',
-    border: '1px solid #ccc',
-  },
-  output: {
-    fontSize: '5rem',
-    margin: '20px 0',
-    minHeight: '100px',
-    lineHeight: '100px',
-    fontWeight: 'bold',
-    color: 'white',
-  },
-  button: {
-    padding: '12px 25px',
-    fontSize: '18px',
-    color: 'white',
-    border: '1px solid #ccc',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    width: '100%',
-    marginTop: '20px',
-    transition: 'background-color 0.2s',
-  },
-};
