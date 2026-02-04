@@ -47,25 +47,9 @@
   margin-bottom: 0.5rem;
 }
 
-.excerpt {
-  font-size: 0.95rem;
-  color: #374151;
-}
-
 .content {
   flex: 1;
   max-width: 900px;
-}
-
-.postTitle {
-  font-size: 1.5rem;
-  margin-bottom: 0.25rem;
-}
-
-.postBody {
-  margin-top: 1rem;
-  line-height: 1.6;
-  white-space: pre-wrap;
 }
 
 @media (max-width: 768px) {

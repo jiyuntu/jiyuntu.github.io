@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import styles from "./page.module.css";
+import 'github-markdown-css'
 
 type Post = {
   id: string;
@@ -34,9 +35,7 @@ export default function BlogClient({ posts }: { posts: Post[] }) {
       <main className={styles.content}>
         {selected ? (
           <article>
-            <h1 className={styles.postTitle}>{selected.title}</h1>
-            <div className={styles.meta}>{new Date(selected.date).toLocaleDateString()}</div>
-            <div className={styles.postBody}>
+            <div className='markdown-body'>
               <ReactMarkdown>{selected.content}</ReactMarkdown>
             </div>
           </article>
