@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from 'remark-gfm'
 import styles from "./page.module.css";
 import 'github-markdown-css'
 
@@ -10,6 +11,7 @@ type Post = {
   title: string;
   date: string;
   content: string;
+  video?: string;
 };
 
 export default function BlogClient({ posts }: { posts: Post[] }) {
@@ -35,8 +37,13 @@ export default function BlogClient({ posts }: { posts: Post[] }) {
       <main className={styles.content}>
         {selected ? (
           <article>
-            <div className='markdown-body'>
-              <ReactMarkdown>{selected.content}</ReactMarkdown>
+            {selected.video && (
+              <div className={styles.video}>
+                <video controls src={selected.video} style={{ maxWidth: '100%', borderRadius: 8 }} />
+              </div>
+            )}
+            <div className="markdown-body">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{selected.content}</ReactMarkdown>
             </div>
           </article>
         ) : (

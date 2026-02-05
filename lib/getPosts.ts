@@ -5,6 +5,7 @@ type PostMeta = {
   id: string;
   title: string;
   date: string;
+  video?: string;
   content: string;
 };
 
@@ -22,6 +23,7 @@ export function getPosts(): PostMeta[] {
     const fmMatch = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
     let title = file.replace(/\.md$/, '');
     let date = '';
+    let video: string | undefined = undefined;
     let content = raw;
 
     if (fmMatch) {
@@ -29,14 +31,17 @@ export function getPosts(): PostMeta[] {
       content = fmMatch[2].trim();
       const titleMatch = fm.match(/title:\s*"?([^"\n]+)"?/);
       const dateMatch = fm.match(/date:\s*"?([^"\n]+)"?/);
+      const videoMatch = fm.match(/video:\s*"?([^"\n]+)"?/);
       if (titleMatch) title = titleMatch[1];
       if (dateMatch) date = dateMatch[1];
+      if (videoMatch) video = videoMatch[1];
     }
 
     return {
       id: file.replace(/\.md$/, ''),
       title,
       date,
+      video,
       content,
     };
   });
