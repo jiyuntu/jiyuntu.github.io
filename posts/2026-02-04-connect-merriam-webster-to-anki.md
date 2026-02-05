@@ -5,6 +5,8 @@ date: "2026-02-04"
 
 # Connect Merriam Webster to Anki
 
+Code: https://github.com/jiyuntu/MW-flashcards
+
 <video controls style="max-width:100%;height:auto;" src="/connect-merriam-webster-to-anki-demo.mov">Your browser does not support the video tag.</video>
 
 ## Motivation
