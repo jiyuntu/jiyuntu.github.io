@@ -5,6 +5,8 @@ date: "2026-02-04"
 
 # Connect Merriam Webster to Anki
 
+<video controls style="max-width:100%;height:auto;" src="/connect-merriam-webster-to-anki-demo.mov">Your browser does not support the video tag.</video>
+
 ## Motivation
 I used to look up English words I didn’t understand on Google Translate. The problem with this approach was that I wouldn’t memorize the word. In fact, it turned out that I repeatedly searched for the same words. This was not efficient nor effective, so I decided that the vocabularies had to go to [Anki](https://apps.ankiweb.net/), the most powerful flashcard I’d ever used, for me to review them. However, it is a tedious process to manually look up words and enter them into Anki. So why not automate it?
 

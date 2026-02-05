@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
+import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
 import styles from "./page.module.css";
 import 'github-markdown-css'
@@ -43,7 +44,7 @@ export default function BlogClient({ posts }: { posts: Post[] }) {
               </div>
             )}
             <div className="markdown-body">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>{selected.content}</ReactMarkdown>
+              <ReactMarkdown rehypePlugins={[rehypeRaw]} remarkPlugins={[remarkGfm]}>{selected.content}</ReactMarkdown>
             </div>
           </article>
         ) : (
