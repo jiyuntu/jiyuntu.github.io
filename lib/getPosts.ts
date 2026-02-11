@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-type PostMeta = {
+export type PostMeta = {
   id: string;
   title: string;
   date: string;

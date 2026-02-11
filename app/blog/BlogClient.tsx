@@ -1,21 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import { PostMeta } from "../../lib/getPosts";
+import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
 import styles from "./page.module.css";
 import 'github-markdown-css'
 
-type Post = {
-  id: string;
-  title: string;
-  date: string;
-  content: string;
-  video?: string;
-};
-
-export default function BlogClient({ posts }: { posts: Post[] }) {
+export default function BlogClient({ posts }: { posts: PostMeta[] }) {
   const [selectedId, setSelectedId] = useState<string>(posts[0]?.id ?? "");
   const selected = posts.find((p) => p.id === selectedId) ?? posts[0];
 
