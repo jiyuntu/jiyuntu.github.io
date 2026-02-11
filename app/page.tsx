@@ -11,6 +11,9 @@ export default function Home() {
         <Link href="/badminton" className={styles.link}>
           Badminton
         </Link>
+        <Link href="/wiki" className={styles.link}>
+          Wiki
+        </Link>
       </main>
     </div>
   );
