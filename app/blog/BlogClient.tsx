@@ -1,6 +1,6 @@
 "use client";
 
-import { PostMeta } from "../../lib/getPosts";
+import { PostMeta } from "@/lib/getPosts";
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from 'rehype-raw'

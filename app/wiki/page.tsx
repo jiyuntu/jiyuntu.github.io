@@ -1,4 +1,4 @@
-import { getWikiItems } from "../../lib/getWikiItems";
+import { getWikiItems } from "@/lib/getWikiItems";
 import styles from "./page.module.css";
 import Link from "next/link";
 

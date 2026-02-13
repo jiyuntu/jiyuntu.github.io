@@ -1,4 +1,4 @@
-import { getPosts } from "../../lib/getPosts";
+import { getPosts } from "@/lib/getPosts";
 import styles from "./page.module.css";
 import BlogClient from "./BlogClient";
 
