@@ -1,9 +1,9 @@
-import { getWikiItems } from "@/lib/getWikiItems";
+import { getWikiItems, WikiItemMeta } from "@/lib/getWikiItems";
 import styles from "./page.module.css";
 import Link from "next/link";
 
-function splitIntoColumns(arr, numCols) {
-  const cols = Array.from({ length: numCols }, () => []);
+function splitIntoColumns(arr: WikiItemMeta[], numCols: number) {
+  const cols: WikiItemMeta[][] = Array.from({ length: numCols }, () => []);
   const colSize = Math.ceil(arr.length / numCols);
   for (let col = 0; col < numCols; col++) {
     cols[col] = arr.slice(col * colSize, (col + 1) * colSize);
