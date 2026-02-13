@@ -22,10 +22,7 @@ export default function WikiPage() {
           <div className={styles.column} key={i}>
             {col.map((wikiItem) => (
               <div className={styles.wikiItem} key={wikiItem.title}>
-                <Link href={{
-                  pathname: `/wiki/item`,
-                  query: { wikiItemTitle: wikiItem.title }
-                }} className={styles.wikiItemTitle}>
+                <Link href={`/wiki/${wikiItem.title}`} className={styles.wikiItemTitle}>
                   <h2>{wikiItem.title}</h2>
                 </Link>
               </div>

@@ -6,7 +6,7 @@ export type WikiItemMeta = {
 };
 
 export function getWikiItems(): WikiItemMeta[] {
-  const wikiItemsDir = path.join(process.cwd(), 'public/wiki');
+  const wikiItemsDir = path.join(process.cwd(), 'wiki');
   if (!fs.existsSync(wikiItemsDir)) return [];
   const files = fs.readdirSync(wikiItemsDir).filter((f) => f.endsWith('.md'));
 
