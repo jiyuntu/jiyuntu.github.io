@@ -3,8 +3,9 @@ import styles from './page.module.css';
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 dark:bg-black">
-      <main className={styles.container}>
+    <main>
+      <div className={styles.background}></div>
+      <div className={styles.container}>
         <Link href="/blog" className={styles.link}>
           Blog
         </Link>
@@ -14,7 +15,7 @@ export default function Home() {
         <Link href="/wiki" className={styles.link}>
           Wiki
         </Link>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
