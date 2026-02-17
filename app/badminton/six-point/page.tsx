@@ -74,7 +74,7 @@ export default function SixPointFootwork() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 dark:bg-black">
+    <div className="flex min-h-screen items-center justify-center bg-white">
       <main className={styles.container}>
         <h1 className={styles.header}>Fixed Tempo Reader</h1>
 

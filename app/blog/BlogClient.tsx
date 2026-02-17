@@ -6,7 +6,7 @@ import ReactMarkdown from "react-markdown";
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
 import styles from "./page.module.css";
-import 'github-markdown-css'
+import 'github-markdown-css/github-markdown-light.css'
 
 export default function BlogClient({ posts }: { posts: PostMeta[] }) {
   const [selectedId, setSelectedId] = useState<string>(posts[0]?.id ?? "");

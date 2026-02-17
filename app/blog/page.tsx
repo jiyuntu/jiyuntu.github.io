@@ -1,12 +1,11 @@
 import { getPosts } from "@/lib/getPosts";
-import styles from "./page.module.css";
 import BlogClient from "./BlogClient";
 
 export default function BlogPage() {
 	const posts = getPosts();
 
 	return (
-		<div>
+		<div className="bg-white">
 			<BlogClient posts={posts} />
 		</div>
 	);

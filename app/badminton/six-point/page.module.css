@@ -24,7 +24,6 @@
   width: 140px;
   text-align: right;
   margin-right: 10px;
-  color: white;
 }
 
 .input {
@@ -41,13 +40,11 @@
   min-height: 100px;
   line-height: 100px;
   font-weight: bold;
-  color: white;
 }
 
 .button {
   padding: 12px 25px;
   font-size: 18px;
-  color: white;
   border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;

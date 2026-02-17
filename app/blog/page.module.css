@@ -31,8 +31,8 @@
 }
 
 .active {
-  background: #111827;
-  color: white;
+  background: white;
+  color: black;
   border-color: rgba(0,0,0,0.2);
 }
 

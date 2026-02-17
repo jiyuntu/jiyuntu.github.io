@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Badminton() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 dark:bg-black">
+    <div className="flex min-h-screen items-center justify-center bg-white">
       <main style={styles.container}>
         <Link href="/badminton/six-point" style={styles.link}>
           Six-Point Footwork
@@ -22,7 +22,6 @@ const styles = {
   },
   link: {
     fontSize: '2rem',
-    color: 'white',
     cursor: 'pointer',
   },
 };

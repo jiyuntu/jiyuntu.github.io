@@ -1,7 +1,7 @@
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
-import 'github-markdown-css'
+import 'github-markdown-css/github-markdown-light.css'
 import fs from "fs";
 import path from "path";
 
