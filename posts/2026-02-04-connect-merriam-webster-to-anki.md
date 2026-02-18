@@ -10,7 +10,7 @@ Code: https://github.com/jiyuntu/MW-flashcards
 <video controls style="max-width:100%;height:auto;" src="/connect-merriam-webster-to-anki-demo.mov">Your browser does not support the video tag.</video>
 
 ## Motivation
-I used to look up English words I didn’t understand on Google Translate. The problem with this approach was that I couldn't memorize the word and I repeatedly searched for the same words. This was not efficient nor effective, so I decided that the vocabularies had to go to [Anki](https://apps.ankiweb.net/), the most powerful flashcard I’d ever used, for me to review them. But honestly, it is a tedious process to manually look up words and enter them into Anki. So why not automate it?
+I used to look up English words I didn’t understand on Google Translate. The problem with this approach was that I couldn't memorize the word and I repeatedly searched for the same words. This was not efficient nor effective, so I decided that the vocabulary had to go to [Anki](https://apps.ankiweb.net/), the most powerful flashcard software I’ve ever used, for me to review them. But honestly, it is a tedious process to manually look up words and enter them into Anki. So I thought, why not automate it?
 
 ## Design
 The program aims to streamline two processes: (1) Look up a word (2) Add the word and its definition to Anki.
@@ -48,7 +48,7 @@ Notes:
 - [1] There might be multiple pronunciation objects for a single entry, e.g. pajama01[🔈](https://media.merriam-webster.com/audio/prons/en/us/mp3/p/pajama01.mp3) and pajama02[🔈](https://media.merriam-webster.com/audio/prons/en/us/mp3/p/pajama02.mp3). I always pick the first one (not necessarily pajama01 though).
 - [2] An entry might have multiple meanings, each might have different example sentences. For convenience, the example sentence for the first meaning is picked.
 
-### Export the Vocabularies to Anki
+### Export the Vocabulary to Anki
 In order to add cards to a deck, the program uses [AnkiConnect](https://git.sr.ht/~foosoft/anki-connect#codeaddnotecode) APIs. In addition to the definition and example sentences, pronunciation sound tracks would also be included in the flash cards. This should be feasible since the addNote API allows embedded audio. To avoid duplication, `allowDuplicate` will be set to false in the request.
 
 ### Edge Cases
@@ -60,3 +60,6 @@ In order to add cards to a deck, the program uses [AnkiConnect](https://git.sr.h
 **Situation 2** Looking up “Furtively”, and found that there is a “Furtive” entry but not “Furtively”: There is not a "Furtively" entry, but querying for “Furtively” would yield the entry of “Furtive” since the query option could be either headword or stems.
 
 **Solution:** Ask the user if they want to add the other headwords instead.
+
+## Conclusion
+Edited on Feb 18, 2026: Now I have been using the flashcards for a while and have been very satisfied with it. I put the words I learned from reading tech blogs, books, and even tenant rights information from a tenants union site. The fact that the words are connected with my life just make them easier to approach and memorize. And it's a fun process to review them on Anki — it's like meeting an old friend, or rather, myself at a certain period. I highly recommend building up a custom vocabulary set to learn a language.
