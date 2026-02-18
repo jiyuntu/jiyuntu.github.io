@@ -10,7 +10,7 @@ export default function Home() {
           Blog
         </Link>
         <Link href="/badminton" className={styles.link}>
-          Badminton
+          Badminton Training Program
         </Link>
         <Link href="/wiki" className={styles.link}>
           Wiki
