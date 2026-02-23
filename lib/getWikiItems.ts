@@ -5,9 +5,9 @@ export type WikiItemMeta = {
   title: string;
 };
 
-export function getWikiItems(): WikiItemMeta[] {
+export function getWikiItemsGroup(): Record<string, WikiItemMeta[]> {
   const wikiItemsDir = path.join(process.cwd(), 'wiki');
-  if (!fs.existsSync(wikiItemsDir)) return [];
+  if (!fs.existsSync(wikiItemsDir)) return {};
   const files = fs.readdirSync(wikiItemsDir).filter((f) => f.endsWith('.md'));
 
   const wikiItems = files.map((file) => {
@@ -15,11 +15,17 @@ export function getWikiItems(): WikiItemMeta[] {
     const raw = fs.readFileSync(full, 'utf8');
 
     let title = file.replace(/\.md$/, '');
+    title = title.charAt(0).toUpperCase() + title.slice(1);
     return {
       title,
     };
   });
 
-  wikiItems.sort((a, b) => a.title.localeCompare(b.title));
-  return wikiItems;
+  const grouped = wikiItems.reduce((acc, item) => {
+    const letter = item.title[0];
+    if (!acc[letter]) acc[letter] = [];
+    acc[letter].push(item);
+    return acc;
+  }, {} as Record<string, WikiItemMeta[]>);
+  return grouped;
 }
