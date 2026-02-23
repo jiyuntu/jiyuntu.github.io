@@ -1,0 +1,1 @@
+Elapsed seconds since midnight of Jan 1st 1970 (Unix epoch) at the Greenwich meridian without leap-second correction. Leap seconds might be added / deleted to Unix time when converting it to UTC time.

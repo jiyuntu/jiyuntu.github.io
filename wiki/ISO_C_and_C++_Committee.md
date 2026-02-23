@@ -1,0 +1,1 @@
+[ISO/IEC JTC1/SC22/WG14](https://www.open-std.org/jtc1/sc22/wg14/) is the international standardization working group for the programming language C, while [ISO/IEC JTC1/SC22/WG21](https://www.open-std.org/jtc1/sc22/wg21/) is for the programming language C++. Both committees develop and improve standards in the programming languages.

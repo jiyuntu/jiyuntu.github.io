@@ -1,0 +1,1 @@
+Network Time Protocol (NTP) synchronizes computer system’s time worldwide. NTP adjustments are required since the clock oscillators in individual computers are subject to frequency drift due to thermal and other physical effects.
