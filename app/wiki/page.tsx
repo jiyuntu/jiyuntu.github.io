@@ -4,9 +4,12 @@ import Link from "next/link";
 
 function splitIntoColumns(arr: WikiItemMeta[], numCols: number) {
   const cols: WikiItemMeta[][] = Array.from({ length: numCols }, () => []);
-  const colSize = Math.ceil(arr.length / numCols);
+  const colSize = Math.floor(arr.length / numCols);
+  const remainder = arr.length % numCols;
   for (let col = 0; col < numCols; col++) {
-    cols[col] = arr.slice(col * colSize, (col + 1) * colSize);
+    const start = col * colSize + Math.min(col, remainder);
+    const end = start + colSize + (col < remainder ? 1 : 0);
+    cols[col] = arr.slice(start, end);
   }
   return cols;
 }
