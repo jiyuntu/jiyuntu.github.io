@@ -4,18 +4,20 @@ import remarkGfm from "remark-gfm";
 import 'github-markdown-css/github-markdown-light.css'
 import fs from "fs";
 import path from "path";
+import { getWikiItems } from "@/lib/getWikiItems";
 
 export async function generateStaticParams() {
-  return [{ slug: 'example' }]
+  const wikiItems = getWikiItems();
+  return wikiItems.map((item) => ({
+    slug: item.filename,
+  }));
 }
 
 function getWikiContent(slug: string): string {
-  const filePath = path.join(process.cwd(), "wiki", `${slug}.md`);
+  const filePath = path.join(process.cwd(), "wiki", decodeURIComponent(slug));
   try {
     const text = fs.readFileSync(filePath, "utf-8");
-    // Remove frontmatter if present
-    const match = text.match(/^---\n[\s\S]*?\n---\n([\s\S]*)$/);
-    return match ? match[1].trim() : text;
+    return text;
   } catch {
     return "Not found.";
   }

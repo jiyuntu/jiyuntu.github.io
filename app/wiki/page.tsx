@@ -2,17 +2,27 @@ import { getWikiItemsGroup, WikiItemMeta } from "@/lib/getWikiItems";
 import styles from "./page.module.css";
 import Link from "next/link";
 
+type WikiEntry = {
+  type: "header" | "item";
+  filename: string;
+  title: string
+};
+
+function filenameToTitle(filename: string): string {
+  return filename.replace(/\.md$/, '').replace(/_/g, ' ');
+}
+
 function splitWithHeaders(wikiItemsGroup: Record<string, WikiItemMeta[]>, numCols: number) {
   // Flatten into an array with letter headers
-  const wikiWithHeaders: { type: "header" | "item"; value: string }[] = [];
+  const wikiWithHeaders: WikiEntry[] = [];
   Object.keys(wikiItemsGroup).sort().forEach((letter) => {
-    wikiWithHeaders.push({ type: "header", value: letter });
+    wikiWithHeaders.push({ type: "header", filename: letter, title: letter });
     wikiItemsGroup[letter].forEach((item) => {
-      wikiWithHeaders.push({ type: "item", value: item.title });
+      wikiWithHeaders.push({ type: "item", filename: item.filename, title: filenameToTitle(item.filename) });
     });
   });
 
-  const cols: Array<Array<{ type: "header" | "item"; value: string }>> = Array.from({ length: numCols }, () => []);
+  const cols: Array<Array<WikiEntry>> = Array.from({ length: numCols }, () => []);
   const colSize = Math.floor(wikiWithHeaders.length / numCols);
   const remainder = wikiWithHeaders.length % numCols;
   for (let col = 0; col < numCols; col++) {
@@ -33,13 +43,13 @@ export default function WikiPage() {
           <div className={styles.column} key={i}>
             {col.map((entry, idx) => (
               entry.type === "header" ? (
-                <div className={styles.wikiHeader} key={"header-" + entry.value + idx}>
-                  <h2 className={styles.wikiHeaderTitle}>{entry.value}</h2>
+                <div className={styles.wikiHeader} key={"header-" + entry.filename + idx}>
+                  <h2 className={styles.wikiHeaderTitle}>{entry.title}</h2>
                 </div>
               ) : (
-                <div className={styles.wikiItem} key={"item-" + entry.value + idx}>
-                  <Link href={`/wiki/${entry.value}`} className={styles.wikiItemTitle}>
-                    <h2>{entry.value}</h2>
+                <div className={styles.wikiItem} key={"item-" + entry.filename + idx}>
+                  <Link href={`/wiki/${entry.filename}`} className={styles.wikiItemTitle}>
+                    <h2>{entry.title}</h2>
                   </Link>
                 </div>
               )
