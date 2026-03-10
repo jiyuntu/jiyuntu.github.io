@@ -1,12 +1,12 @@
 import { getPosts } from "@/lib/getPosts";
-import BlogClient from "./BlogClient";
+import { redirect } from "next/navigation";
 
 export default function BlogPage() {
-	const posts = getPosts();
+  const posts = getPosts();
 
-	return (
-		<div className="bg-white">
-			<BlogClient posts={posts} />
-		</div>
-	);
+  if (posts.length > 0) {
+    redirect(`/blog/${posts[0].id}`);
+  }
+
+  return <div>No posts available</div>;
 }
