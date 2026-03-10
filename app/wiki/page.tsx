@@ -44,7 +44,7 @@ export default function WikiPage() {
             {col.map((entry, idx) => (
               entry.type === "header" ? (
                 <div className={styles.wikiHeader} key={"header-" + entry.filename + idx}>
-                  <h2 className={styles.wikiHeaderTitle}>{entry.title}</h2>
+                  <h2 className={styles.wikiHeaderTitle}>§  {entry.title} §</h2>
                 </div>
               ) : (
                 <div className={styles.wikiItem} key={"item-" + entry.filename + idx}>
