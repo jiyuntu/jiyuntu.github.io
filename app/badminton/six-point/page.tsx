@@ -44,8 +44,8 @@ export default function SixPointFootwork() {
   };
 
   const startReader = () => {
-    if (tempo <= 0) return alert("Tempo must be > 0");
-    if (maxRounds <= 0) return alert("Rounds must be > 0");
+    if (!tempo || tempo <= 0) return alert("Tempo must be > 0");
+    if (!maxRounds || maxRounds <= 0) return alert("Rounds must be > 0");
 
     currentRoundRef.current = 0;
     setIsRunning(true);
