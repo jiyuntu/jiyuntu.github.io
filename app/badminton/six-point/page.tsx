@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import styles from './page.module.css'
 
 export default function SixPointFootwork() {
@@ -96,8 +96,14 @@ export default function SixPointFootwork() {
           <input
             type="number"
             value={maxRounds}
+            step="1"
             min="1"
             onChange={(e) => setMaxRounds(parseInt(e.target.value))}
+            onKeyDown={(e) => {
+              if (['.'].includes(e.key)) {
+                e.preventDefault();
+              }
+            }}
             className={styles.input}
             disabled={isRunning}
           />
