@@ -13,9 +13,11 @@ const withMDX = createMDX({
     remarkPlugins: [
       'remark-gfm',
       'remark-frontmatter',
+      'remark-math',
     ],
     rehypePlugins: [
       'rehype-raw',
+      ['rehype-katex', { output: 'mathml' }],
     ],
   },
 })
